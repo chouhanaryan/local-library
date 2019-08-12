@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Local Library: {{ user.get_username }}</title>{% endblock %}
+
+{% block content %}
+  <h1 style="padding-top: 15px">My Account: {{ user.get_username }}</h1>
+
+  {% if bookinstance_list %}    
+  <ul>      
+    {% for bookinst in bookinstance_list %}
+    
+    <li style="padding-top: 5px" class="{% if bookinst.is_overdue %}text-danger{% elif bookinst.status == 'r' %}text-warning{% elif not bookinst.is_overdue and bookinst.status == 'o' %}text-success{% endif %}">
+
+      {% if bookinst.status == 'o' %}
+      <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> ({{ bookinst.due_back }})
+      
+
+      {% elif bookinst.status == 'r' %}
+      <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> (Reserved)
+      {% endif %}
+
+    </li>
+    
+    {% endfor %}
+  </ul>      
+  {% else %}
+    <p>There are no books borrowed or reserved by you.</p>
+  {% endif %}        
+
+{% endblock %}

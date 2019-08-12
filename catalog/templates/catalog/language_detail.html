@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Local Library: {{ language }}</title>{% endblock %}
+
+{% block content %}
+  <h1 style="padding-top: 15px; padding-bottom: 5px">Language: {{ language }}</h1>
+  <ul>
+  {% for book in language.book_set.all %}
+ 	<div>
+    <li style="margin-left: 5px; padding-top: 5px"><a href="{% url 'book-detail' book.pk %}">{{book}}</a> ({{book.author}})
+    	<br>
+	</li>
+	</div>
+  {% endfor %}
+  </ul>
+
+
+{% endblock %}
