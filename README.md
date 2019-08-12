@@ -5,7 +5,7 @@ The tutorial can be found at https://developer.mozilla.org/en-US/docs/Learn/Serv
 
 I have built upon the original project by adding several feature and quality of life adjustments.
 
-To make sure I learn as much as possible, i included the following -
+To make sure I learn as much as possible, I included the following
 
 1. Image uploading & templating
 
