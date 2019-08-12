@@ -16,6 +16,7 @@
       {% block sidebar %}
         <ul class="sidebar-nav">
           <li><a href="{% url 'index' %}">Home</a></li>
+<<<<<<< HEAD
           <li><a href="{% url 'books' %}">Books</a></li>
           <li><a href="{% url 'authors' %}">Authors</a></li>
           <li><a href="{% url 'genres' %}">Genres</a></li>
@@ -66,5 +67,16 @@
   </div>
 
   
+=======
+          <li><a href="{% url 'books' %}">All books</a></li>
+          <li><a href="">All authors</a></li>
+          <li><a href="">All genres</a></li>
+        </ul>
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+    </div>
+  </div>
+>>>>>>> 966a25c7653f18d6992532af252992869a4dcce5
 </body>
 </html>
