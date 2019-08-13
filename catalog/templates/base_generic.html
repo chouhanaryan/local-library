@@ -25,13 +25,13 @@
           {% if user.is_authenticated %}
             {% if not user.is_staff %}
             <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
+            <li><a href="{% url 'my-borrowed' %}">My Account</a></li>
             
             
              
             
-            {% elif user.is_staff %}
-            <li><a href="">Create</a></li>
+            {% elif user.is_staff or user.is_superuser %}
+            <li><a href="{% url 'book-create' %}">Create</a></li>
             <li><a href="">Update</a></li>
             <li><a href="">Delete</a></li>
 

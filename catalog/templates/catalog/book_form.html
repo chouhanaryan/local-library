@@ -1,14 +1,16 @@
 {% extends 'base_generic.html' %}
 
-    {% block title %}<title>Local Library: Create Book</title>{% endblock %}
+{% block title %}<title>Local Library: Create Book</title>{% endblock %}
 
 {% block content %}
+    <h1 style="padding-bottom: 5px; padding-top: 15px">Create Book</h1>
+
     <form action="." method="POST">
 
     {% csrf_token %}
 
     <table>
-    	{{form.as_p}}
+    	{{form.as_table}}
 
     </table>
     <button type="submit">SUBMIT</button>

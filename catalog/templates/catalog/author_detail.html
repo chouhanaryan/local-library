@@ -4,6 +4,8 @@
 
 {% block content %}
   <h1 style="padding-top: 15px; padding-bottom: 5px">Author: {{ author }}</h1>
+  <img src="{{ author.image.url }}">
+  <p></p>
   {% if author.date_of_birth and author.date_of_death %}
   <p class="text-muted">{{ author.date_of_birth }} - {{author.date_of_death}}</p>
 
