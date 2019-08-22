@@ -4,17 +4,15 @@ from django.views import generic
 from catalog.forms import BookCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-def index(request):
-    """View function for home page of site."""
+def index(request):    
 
     # Generate counts of some of the main objects
     num_books = Book.objects.all().count()
     num_instances = BookInstance.objects.all().count()
-    
-    # Available books (status = 'a')
+        
     num_instances_available = BookInstance.objects.filter(status__exact='a').count()
     
-    # The 'all()' is implied by default.
+    # 'all()' is implied by default.
     num_authors = Author.objects.count()
 
     num_genres = Genre.objects.count()
@@ -31,12 +29,11 @@ def index(request):
         'num_genres': num_genres,
         'num_visits': num_visits,
     }
-
-    # Render the HTML template index.html with the data in the context variable
+        
     return render(request, 'index.html', context=context)
 
-class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
-    """Generic class-based view listing books on loan to current user."""
+class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
+    # Generic class-based view listing books on loan to current user.
     model = BookInstance
     template_name ='catalog/bookinstance_list_borrowed_user.html'
     paginate_by = 10
@@ -45,7 +42,7 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
         return BookInstance.objects.filter(borrower=self.request.user).order_by('status')
 
 class BookListView(generic.ListView):
-    '''default context is sent to book_list.html as book_list'''
+    # default context is sent to book_list.html as book_list
     model = Book
     paginate_by = 5
     # queryset = Book.objects.filter(language='English')
@@ -54,7 +51,7 @@ class BookDetailView(generic.DetailView):
     model = Book
 
 class AuthorListView(generic.ListView):
-    '''default context is sent to author_list.html as author_list'''
+    # default context is sent to author_list.html as author_list
     model = Author
 
 class AuthorDetailView(generic.DetailView):

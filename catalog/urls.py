@@ -12,8 +12,5 @@ urlpatterns = [
     path('language/', views.LanguageListView.as_view(), name='languages'),
     path('language/<int:pk>', views.LanguageDetailView.as_view(), name='language-detail'),
     path('book-create/', views.BookCreateView.as_view(), name='book-create'),
-]
-
-urlpatterns += [   
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
 ]
