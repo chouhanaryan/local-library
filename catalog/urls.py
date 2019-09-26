@@ -13,4 +13,5 @@ urlpatterns = [
     path('language/<int:pk>', views.LanguageDetailView.as_view(), name='language-detail'),
     path('book-create/', views.BookCreateView.as_view(), name='book-create'),
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+    path('<slug:random>/', views.customerror, name='error-page'),
 ]

@@ -32,6 +32,9 @@ def index(request):
         
     return render(request, 'index.html', context=context)
 
+def customerror(request, random):
+    return render(request, 'customerror.html', context={'random': random})
+
 class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
     # Generic class-based view listing books on loan to current user.
     model = BookInstance
