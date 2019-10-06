@@ -9,3 +9,5 @@ I have built upon the original project by adding several features and quality of
 # **ER Diagram**
 
 ![ER](https://github.com/chouhanaryan/local-library/blob/master/ER%20diagram.png)
+
+(This diagram was generated using the django-extensions, pydot and graphviz)
